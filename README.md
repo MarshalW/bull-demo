@@ -74,11 +74,11 @@ $ ./bin/consumer -s 3
 
 这是官方推荐的方式，`separed processes`，主要好处是：
 
-* 防止出现Job`stalled`的情况，当接收消息出现`event loop busy`时会出现这样的情况
-    * 因为处理job的进程，Bull又称为`sandboxed process`，其实并不处理Queue
-    * Node.js主进程得到Queue Job后，再通知`sandboxed process`去处理Job
+* 防止出现Job`stalled`的情况，当接收消息出现`event loop busy`时会出现这样的情况
+    * 因为处理job的进程，Bull又称为`sandboxed process`，其实并不处理Queue
+    * Node.js主进程得到Queue Job后，再通知`sandboxed process`去处理Job
     * `sandboxed process`即使阻塞，也不会引起`stalled`
 * 这种架构还带来了其他好处
-  * 不担心`sandboxed process`崩溃，因为Bull的API会自动创建新的进程，补足process pool
+  * 不担心`sandboxed process`崩溃，因为Bull的API会自动创建新的进程，补足process pool
   * 不会因为做cluster使用更多的redis连接，因为连接还在Node.js主进程
-  * 可以把多核cpu利用起来
+  * 可以把多核cpu利用起来
