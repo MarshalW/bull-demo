@@ -62,7 +62,7 @@ $ ./bin/consumer -s 3
 
 如果想看到跑到进程数，可以：
 
-* 先启动`producer`，形成一定数量的`waiting`的Job，再启动`consumer`
+* 先启动`producer`，形成一定数量的`waiting`的Job，再启动`consumer`
 * 给`consumer`的执行，设置延时，在`config/default.json`中设置`delay`毫秒数
 
 ## 代码说明
