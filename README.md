@@ -25,7 +25,7 @@ docker-compose up -d
 
 通过浏览器访问：http://localhost:4567
 
-配置文件在`config/arena.json`，如果需要增加新的队列，按照配置文件语法直接配置就可以了，无需重启服务，直接刷屏生效。
+配置文件在`config/arena.json`，如果需要增加新的队列，按照配置文件语法直接配置就可以了，无需重启服务，直接刷屏生效。
 
 ## 运行示例
 
@@ -60,14 +60,14 @@ $ ./bin/consumer -s 3
 
 设置为`3`不一定能启动3个进程，要看进程池里是否有空闲进程。
 
-如果想看到跑到进程数，可以：
+如果想看到跑到进程数，可以：
 
-* 先启动`producer`，形成一定数量的`waiting`的Job，再启动`consumer`
+* 先启动`producer`，形成一定数量的`waiting`的Job，再启动`consumer`
 * 给`consumer`的执行，设置延时，在`config/default.json`中设置`delay`毫秒数
 
 ## 代码说明
 
-生产环境要使用类似下面代码的方式：
+生产环境要使用类似下面代码的方式：
 
 * `lib/consumer/sandboxed.js`
 * `lib/consumer/worker.js`
