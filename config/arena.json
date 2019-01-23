@@ -1,0 +1,10 @@
+{
+    "queues": [
+      {
+        "name": "my_queue",
+        "port": 6379,
+        "host": "redis",
+        "hostId": "TestServer"
+      }
+    ]
+  }
