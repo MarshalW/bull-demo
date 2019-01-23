@@ -11,7 +11,7 @@
 * Redis
 * 可视化的查看Job/Job生命周期/Redis状态
 
-我们搭建了满足要求的环境：
+因此搭建了满足要求的环境：
 
 * 通过Docker-compose启动
 * 启动一个Redis Server
@@ -63,7 +63,7 @@ $ ./bin/consumer -s 3
 如果想看到跑到进程数，可以：
 
 * 先启动`producer`，形成一定数量的`waiting`的Job，再启动`consumer`
-* 给`consumer`的执行，设置延时，在`config/default.json`中设置`delay`毫秒数
+* 或者，给`consumer`的执行设置延时，在`config/default.json`中设置`delay`毫秒数
 
 ## 代码说明
 
@@ -75,7 +75,7 @@ $ ./bin/consumer -s 3
 这是官方推荐的方式，`separed processes`，主要好处是：
 
 * 防止出现Job`stalled`的情况，当接收消息出现`event loop busy`时会出现这样的情况
-    * 因为处理job的进程，Bull又称为`sandboxed process`，其实并不处理Queue
+    * 因为处理job的进程（Bull又称为`sandboxed process`），其实并不处理Queue
     * Node.js主进程得到Queue Job后，再通知`sandboxed process`去处理Job
     * `sandboxed process`即使阻塞，也不会引起`stalled`
 * 这种架构还带来了其他好处
